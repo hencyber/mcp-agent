@@ -10,18 +10,12 @@ ställa frågor om systemet på svenska.
 - Middleware (`@wrap_tool_call`) bearbetar output innan den når agenten
 - Använder Ollama (llama3.1) som LLM
 
-## Flöde
+## Flödesdiagram
 
-```
-Användare --> Agent --> MCP Server (7 verktyg)
-                |            |
-                |      Filtrera (5 av 7)
-                |            |
-                +-- Middleware (tidsstämpel + trunkering)
-                |
-                v
-           Svar till användare
-```
+![Flödesdiagram](diagram.png)
+
+Agenten har bara tillgång till 5 av 7 verktyg.
+`search_logs` och `list_top_processes` filtreras bort i agent.py.
 
 ## Starta
 
